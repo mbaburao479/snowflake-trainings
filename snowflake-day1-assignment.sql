@@ -9,9 +9,9 @@
 
  -- 3 -- create an external stage on s3 bucket
  create or replace stage ingestion.temp.test_ext_stg_csv 
-url= 's3://inovalon-more2-deidentified-dataregistry-bucket-588713642076/test/patient_records.csv'
+url= 's3://inovalon-bucket/test/patient_records.csv'
 file_format = ingestion.temp.test_csv_format 
-ENCRYPTION = (TYPE = 'AWS_SSE_KMS' KMS_KEY_ID = 'fd70af15-fe8e-44c2-b4e1-39ae6de6bf2d') STORAGE_INTEGRATION=INOVALON_MORE2_DEV;
+ENCRYPTION = (TYPE = 'AWS_SSE_KMS' KMS_KEY_ID = 'fd70af15--39ae6de6bf2d') STORAGE_INTEGRATION=INOVALON_DEV;
 
  select count(*) from @ingestion.temp.test_ext_stg_csv;
 
